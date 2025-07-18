@@ -20,7 +20,7 @@ public class JSONUtility {
 			✅ Retrieve specific data from those objects
 			✅ Print the desired value
 		 */
-		File jsonFile = new File(System.getProperty("user.dir")+"\\config\\config.json");
+		File jsonFile = new File(System.getProperty("user.dir") + File.separator + "config" + File.separator + "config.json");
 		FileReader fileReader = null;
 		try {
 			fileReader = new FileReader(jsonFile);
