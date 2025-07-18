@@ -22,8 +22,11 @@ public class LoginDataProvider {
 	@DataProvider(name="LoginTestDataProvider")
 	public Iterator<Object[]> loginDataProvider() throws FileNotFoundException {
 		
-		Gson gson = new Gson(); //create json object
-		File testDataFile = new File(System.getProperty("user.dir")+ File.separator + "testData" + File.separator + "loginData.json"); //tell where the file is present
+		Gson gson = new Gson(); //create Json object
+		File testDataFile = new File(System.getProperty("user.dir")
+				+ File.separator + "testData"
+				+ File.separator 
+				+ "loginData.json"); //tell where the file is present
 		FileReader fileReader = new FileReader(testDataFile); // create a file reader
 		TestData data = gson.fromJson(fileReader, TestData.class); //map the file reader to java class-- Deserialization
 		
@@ -34,7 +37,7 @@ public class LoginDataProvider {
 			dataToReturn.add(new Object[] {user});	
 		}
 		
-		return dataToReturn.iterator(); // returning iterator
+		return dataToReturn.iterator(); // returning iterator test
 		
 	}
 	
