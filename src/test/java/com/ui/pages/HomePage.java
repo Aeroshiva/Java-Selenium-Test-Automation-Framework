@@ -18,8 +18,8 @@ public final class HomePage extends BrowserUtility{
 	private static final By SIGN_IN_LOCATOR = By.xpath("//a[contains(text(),'Sign in')]");
 	
 	
-	public HomePage(Browser browser, boolean isHeadless) {
-		super(browser, isHeadless); // to call the parent class constructor from the child constructor 
+	public HomePage(Browser browser, String isHeadless) {
+		super(browser); // to call the parent class constructor from the child constructor 
 		goToWebsite(JSONUtility.readJSON(QA).getUrl());
 
 		
@@ -29,6 +29,9 @@ public final class HomePage extends BrowserUtility{
 		super(lambdaDriver);
 	    goToWebsite(JSONUtility.readJSON(QA).getUrl());
 	}
+
+	
+	
 
 	public LoginPage goToLoginPage() { //page functions ---> 
 		logger.info("Trying to perform click to go to Sign in Page");
