@@ -27,6 +27,7 @@ public class LoginDataProvider {
 				+ File.separator + "testData"
 				+ File.separator 
 				+ "loginData.json"); //tell where the file is present
+		
 		FileReader fileReader = new FileReader(testDataFile); // create a file reader
 		TestData data = gson.fromJson(fileReader, TestData.class); //map the file reader to java class-- Deserialization
 		

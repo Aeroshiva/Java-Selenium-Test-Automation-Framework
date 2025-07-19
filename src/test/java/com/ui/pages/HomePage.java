@@ -19,7 +19,7 @@ public final class HomePage extends BrowserUtility{
 	
 	
 	public HomePage(Browser browser, String isHeadless) {
-		super(browser); // to call the parent class constructor from the child constructor 
+		super(browser, isHeadless); // to call the parent class constructor from the child constructor 
 		goToWebsite(JSONUtility.readJSON(QA).getUrl());
 
 		

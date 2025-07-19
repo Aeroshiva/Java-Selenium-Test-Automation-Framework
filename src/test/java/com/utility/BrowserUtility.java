@@ -69,14 +69,15 @@ public abstract class BrowserUtility {
 
 	}
 
-	public BrowserUtility(Browser browserName, boolean isHeadless) {
+	public BrowserUtility(Browser browserName, String isHeadless) {
+		boolean headless = Boolean.parseBoolean(isHeadless);
 		logger.info("Launching the Browser for " + browserName);
 		if (browserName == Browser.CHROME) {
 
-			if (isHeadless) {
+			if (headless) {
 
 				ChromeOptions options = new ChromeOptions();
-				options.addArguments("--headless");
+				options.addArguments("--headless=new");
 				options.addArguments("--window-size=1920,1080");
 				driver.set(new ChromeDriver(options));
 			} else {
@@ -85,7 +86,7 @@ public abstract class BrowserUtility {
 			}
 
 		} else if (browserName == Browser.EDGE) {
-			if (isHeadless) {
+			if (headless) {
 				EdgeOptions options = new EdgeOptions();
 				options.addArguments("--headless=old");
 				options.addArguments("disable-gpu");
@@ -95,7 +96,7 @@ public abstract class BrowserUtility {
 			}
 
 		} else if (browserName == Browser.FIREFOX) {
-			if (isHeadless) {
+			if (headless) {
 				FirefoxOptions options = new FirefoxOptions();
 				options.addArguments("--headless=old");
 				driver.set(new FirefoxDriver(options));
@@ -150,7 +151,7 @@ public abstract class BrowserUtility {
 		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss-SSS");
 		String timeStamp = format.format(date);
 
-		String path = System.getProperty("user.dir") + File.separator + "screenshots" + File.separator + name + " - "
+		String path = "."+File.separator + "screenshots" + File.separator + name + " - "
 				+ timeStamp + ".png";
 		File screenshotFile = new File(path);
 		try {
