@@ -33,6 +33,7 @@ jobs:
       with:
         name: Test logs
         path: logs/
+        
     - name: Uploads Screenshots as Artifacts
       if: always() 
       uses: actions/upload-artifact@v4.6.2
@@ -56,7 +57,7 @@ jobs:
       run: | 
         mkdir -p public/extent-reports
         cp -R report.html public/extent-reports/
-        cp -R screenshots/* public/extent-reports/screenshots/
+        cp -R screenshots/ public/extent-reports/screenshots/
         ls -l
 
     - name: Deploy
