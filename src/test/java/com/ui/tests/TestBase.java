@@ -1,7 +1,5 @@
 package com.ui.tests;
 
-import static com.constants.Browser.EDGE;
-
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.testng.ITestResult;
@@ -10,7 +8,6 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 
-import com.beust.jcommander.Parameter;
 import com.constants.Browser;
 import com.ui.pages.HomePage;
 import com.utility.BrowserUtility;
@@ -25,10 +22,8 @@ public class TestBase {
 
 	@Parameters({ "browser", "isLambdaTest", "isHeadless" })
 	@BeforeMethod(description = "Load the HomePage of the Website")
-	public void setup(
-		@Optional("chrome")	String browser, 
-		@Optional("false") String isLambdaTest, 
-		@Optional("true") String isHeadless, ITestResult result) {
+	public void setup(@Optional("chrome") String browser, @Optional("false") String isLambdaTest,
+			@Optional("false") String isHeadless, ITestResult result) {
 
 		this.isLambdaTest = Boolean.parseBoolean(isLambdaTest);
 		boolean headless = Boolean.parseBoolean(isHeadless);
